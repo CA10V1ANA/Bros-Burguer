@@ -1,0 +1,3 @@
+import {Component,inject} from '@angular/core';import {Store} from '../core/store.service';import {Ui} from '../core/ui.service';import {CatalogComponent} from '../shared/catalog.component';import {CartComponent} from '../shared/cart.component';import {MoneyPipe} from '../shared/money.pipe';
+@Component({selector:'bros-customer',imports:[CatalogComponent,CartComponent,MoneyPipe],templateUrl:'./customer.component.html',styleUrl:'./customer.component.scss'})
+export class CustomerComponent{readonly store=inject(Store);readonly ui=inject(Ui);scrollMenu(){document.getElementById('menu')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}}

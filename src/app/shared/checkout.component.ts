@@ -1,0 +1,10 @@
+import {Component,computed,inject} from '@angular/core';import {NonNullableFormBuilder,ReactiveFormsModule,Validators} from '@angular/forms';import {Router} from '@angular/router';import {Store} from '../core/store.service';import {Ui} from '../core/ui.service';import {MoneyPipe} from './money.pipe';import {Payment} from '../core/models';import {payable} from '../core/order-math';
+@Component({selector:'bros-checkout',imports:[ReactiveFormsModule,MoneyPipe],templateUrl:'./checkout.component.html'})
+export class CheckoutComponent{
+ readonly store=inject(Store);readonly ui=inject(Ui);readonly admin=inject(Router).url.startsWith('/admin');private fb=inject(NonNullableFormBuilder);
+ readonly form=this.fb.group({name:['',[Validators.required,Validators.maxLength(80)]],phone:['',[Validators.required,Validators.pattern(/^[0-9 ()+\-]{10,20}$/)]],delivery:['delivery' as 'delivery'|'pickup'],address:['',Validators.required],reference:[''],payment:['Pix' as Payment],fee:[5,[Validators.required,Validators.min(0)]],change:[''],note:['']});
+ get amount(){return payable(this.store.cart(),this.form.controls.delivery.value==='pickup'?0:this.form.controls.fee.value);}
+ constructor(){this.form.controls.delivery.valueChanges.subscribe(v=>{const address=this.form.controls.address;address.setValidators(v==='delivery'?Validators.required:null);address.updateValueAndValidity();this.form.controls.fee.setValue(v==='pickup'?0:5);});}
+ selectCustomer(id:string){const c=this.store.orders().find(o=>o.id===Number(id));if(c)this.form.patchValue({name:c.name,phone:c.phone,address:c.address,reference:c.reference||''});}
+ submit(){this.form.markAllAsTouched();if(this.form.invalid||!this.store.cartCount())return;const v=this.form.getRawValue();if(v.payment==='Dinheiro'&&v.change&&Number(v.change)<this.amount){this.store.notify('O valor para troco deve cobrir o total.');return;}const order=this.store.createOrder({...v,fee:v.delivery==='pickup'?0:Number(v.fee),address:v.delivery==='pickup'?'Retirada na loja':v.address},this.admin?'PDV':'Cardápio');this.ui.open({kind:'order',id:order.id,created:true});}
+}

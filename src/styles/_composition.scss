@@ -1,0 +1,22 @@
+// Angular composition: each feature owns its view; the brand tokens stay shared.
+bros-app,bros-customer,bros-admin,bros-terminal,bros-dashboard,bros-orders,bros-products,bros-clients { display:block; }
+a.primary,a.smallbtn { display:inline-block; text-decoration:none; color:inherit; }
+a.gold { color:#181713; }
+.customer-catalog > bros-catalog .toolbar { margin-top:0; }
+.customer-catalog .cart-side { margin-top:72px; }
+.side-links .side-link { padding:15px 12px; display:flex; align-items:center; gap:13px; text-align:left; font-size:12px; border-radius:5px; color:#c5bcb6; text-decoration:none;
+ span { font-size:19px; min-width:19px; color:#d9aaa3; }
+ small { margin-left:auto; color:var(--gold); }
+ &.active { background:#a51f20; color:white; span { color:white; } }
+ &:hover { background:#292426; }
+ &:focus-visible { outline:2px solid var(--gold); }
+}
+.form-error { color:#ffb4ac; font-size:12px; }
+.available { color:#92c288; }.unavailable { color:#ed968c; }
+.admin-main .terminal-catalog .toolbar { margin-bottom:24px; }
+.admin-mode .demo { position:relative; }
+@media(max-width:760px) {
+ .side-links .side-link { flex-direction:column; gap:3px; font-size:9px; padding:8px 4px; flex:1; text-align:center; small { display:none; } span {font-size:20px;} }
+ .customer-catalog .cart-side { margin-top:0; }
+ .admin-main .sectionhead > a.primary { font-size:11px; padding:12px; }
+}

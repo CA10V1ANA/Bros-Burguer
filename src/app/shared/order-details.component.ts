@@ -1,0 +1,3 @@
+import {Component,computed,inject,input} from '@angular/core';import {Router} from '@angular/router';import {Store} from '../core/store.service';import {STATUSES} from '../core/models';import {subtotal} from '../core/order-math';import {MoneyPipe} from './money.pipe';
+@Component({selector:'bros-order-details',imports:[MoneyPipe],templateUrl:'./order-details.component.html'})
+export class OrderDetailsComponent{readonly id=input.required<number>();readonly created=input(false);readonly store=inject(Store);readonly admin=inject(Router).url.startsWith('/admin');readonly statuses=STATUSES;readonly order=computed(()=>this.store.orders().find(o=>o.id===this.id()));readonly subtotal=subtotal;}
