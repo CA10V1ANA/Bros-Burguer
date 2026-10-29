@@ -1,0 +1,24 @@
+# Dependências e arquivos gerados
+node_modules/
+dist/
+.angular/
+out-tsc/
+coverage/
+
+# Configurações locais de hospedagem
+.vercel/
+.netlify/
+.openai/
+.sites-runtime/
+
+# Variáveis locais e logs
+.env
+.env.*
+!.env.example
+*.log
+
+# Editor e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
