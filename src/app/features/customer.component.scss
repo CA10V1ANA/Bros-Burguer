@@ -1,1 +1,80 @@
-:host { display:block; }
+$paper: #eee5ce;
+$red: #b62521;
+$yellow: #f6b42e;
+
+:host { display:block; position:relative; overflow:clip; isolation:isolate; }
+.rock-canvas { position:absolute; inset:0; z-index:-1; pointer-events:none; overflow:hidden; background:#111212; }
+.wall-collage { position:absolute; inset:0; background-image:url('/assets/rock/sticker-sheet-bands.jpg'); background-size:490px 870px; opacity:.035; filter:grayscale(1); mask-image:linear-gradient(90deg,#000,transparent 22%,transparent 78%,#000); }
+.wall-bolt { position:absolute; background:$red; width:100px; height:290px; clip-path:polygon(48% 0,100% 0,56% 40%,90% 40%,0 100%,30% 53%,0 53%); opacity:.28; transform:rotate(15deg); }
+.wall-bolt--one { left:-25px; top:1000px; }
+.wall-bolt--two { right:-30px; top:1650px; transform:rotate(195deg); }
+.wall-star { position:absolute; right:-25px; top:720px; font-size:160px; color:$paper; opacity:.055; }
+.rock-header { position:relative; max-width:1440px; }
+.header-amp { font-size:8px; font-weight:700; letter-spacing:2px; color:#aaa18f; display:flex; gap:20px; align-items:center; b { color:$red; font:32px Anton,sans-serif; } }
+.rock-wrap { position:relative; }
+.rock-hero { border-color:#5c4a2d; border-radius:5px; background:#111; box-shadow:0 12px 35px #0004; overflow:visible; min-height:410px; }
+.hero-copy { position:relative; padding:38px 40px 32px; background:$paper; color:#161514; border-radius:4px 0 0 4px;
+  &::before { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.13' filter='url(%23n)'/%3E%3C/svg%3E"); opacity:.38; mix-blend-mode:multiply; pointer-events:none; }
+  &::after { content:''; position:absolute; width:20px; top:0; bottom:0; right:-18px; background:$paper; clip-path:polygon(0 0,85% 0,44% 4%,98% 9%,35% 14%,74% 20%,40% 25%,100% 31%,38% 38%,76% 43%,28% 50%,88% 57%,37% 64%,96% 70%,32% 76%,79% 84%,35% 92%,90% 100%,0 100%); }
+  .eyebrow { color:#29251d; font-size:9px; letter-spacing:1.5px; gap:8px; }
+  h1 { position:relative; font-size:66px; line-height:1.06; margin:17px 0 14px; text-shadow:1px 0 #161514; letter-spacing:.1px; em { color:$red; font-style:normal; } }
+  p { color:#655b4b; font-size:12px; margin-bottom:21px; }
+  .primary { position:relative; background:#161616; color:$paper; border-radius:3px; border:1px solid #161616; box-shadow:3px 3px 0 $red; padding:14px 20px; font-size:12px; &:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 $red; } }
+}
+.mini-bolt { width:12px; height:22px; background:$red; clip-path:polygon(45% 0,100% 0,60% 40%,98% 40%,0 100%,29% 54%,0 54%); flex-shrink:0; }
+.poster-edition { display:block; font-size:7px; font-weight:700; letter-spacing:1.7px; color:#81725c; margin-top:13px; }
+.poster-footnote { display:block; font-size:7px; font-weight:700; letter-spacing:1.7px; color:#8d7c61; margin-top:19px; }
+.heading-star { position:absolute; font-family:Arial,sans-serif; font-size:43px; color:$red; right:8%; top:65px; transform:rotate(12deg); text-shadow:none; }
+.hero-photo { border-radius:0 4px 4px 0; overflow:hidden; img { object-position:center; } &::after { background:linear-gradient(90deg,#17151255,transparent 28%); } }
+.stamp { width:76px; height:76px; right:18px; top:20px; background:#171310b8; border-style:dashed; font-size:16px; }
+.hero-tape { position:absolute; right:25px; bottom:-13px; background:$red; color:$paper; font-weight:700; font-size:9px; letter-spacing:1.5px; padding:9px 20px; transform:rotate(-3deg); z-index:4; box-shadow:0 4px 7px #0004; }
+.hero-decal { position:absolute; left:43%; bottom:17px; z-index:3; transform:rotate(10deg); filter:drop-shadow(2px 4px 2px #0006); }
+.sticker { display:block; flex-shrink:0; background-repeat:no-repeat; background-image:url('/assets/rock/sticker-sheet-bands.jpg'); background-color:#fff; width:80px; height:80px; border-radius:50%; }
+.sticker--horns { width:102px; height:114px; background-image:url('/assets/rock/sticker-sheet-classics.jpg'); background-size:282% 419%; background-position:100% 100%; border-radius:0; clip-path:polygon(22% 1%,45% 1%,50% 30%,68% 23%,79% 3%,91% 8%,90% 53%,100% 73%,88% 100%,12% 100%,1% 78%,13% 55%); }
+.decal-caption { display:block; background:$yellow; color:#18150e; font:13px Anton,sans-serif; letter-spacing:.5px; padding:4px 12px; text-align:center; transform:rotate(-13deg); margin-top:-4px; }
+.rock-strip { position:relative; display:flex; align-items:center; gap:25px; padding:22px 30px; background:$paper; color:#171616; margin:29px 0 0; min-height:132px; border-radius:2px; background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,#5c4a2d04 4px);
+ &::before,&::after { content:''; position:absolute; width:68px; height:20px; background:#d2bd8d9e; border-left:2px dashed #b49e6c66; border-right:2px dashed #b49e6c66; top:-8px; transform:rotate(-8deg); }
+ &::before { left:30px; } &::after { right:110px; transform:rotate(7deg); }
+}
+.strip-label { min-width:245px; span { display:block; color:$red; font-size:9px; letter-spacing:2.2px; font-weight:700; margin-bottom:5px; } strong { display:block; font:26px Anton,sans-serif; } small { color:#81715b; font-size:10px; display:block; margin-top:7px; } }
+.sticker-line { display:flex; gap:15px; align-items:center; flex:1; justify-content:center; .sticker { box-shadow:2px 3px 0 #37291830; border:3px solid #fff; transition:transform .2s; } .sticker:nth-child(1){transform:rotate(-12deg)} .sticker:nth-child(2){transform:rotate(9deg)} .sticker:nth-child(3){transform:rotate(-7deg)} .sticker:nth-child(4){transform:rotate(8deg)} }
+.sticker--nirvana { background-size:223.03% 396.36%; background-position:0 66.46%; }
+.sticker--acdc { background-size:204.44% 402.46%; background-position:98.4% 66.1%; }
+.sticker--guns { background-size:201.64% 398.78%; background-position:98.1% 100%; }
+.sticker--stones { background-image:url('/assets/rock/sticker-sheet-legends.jpg'); background-size:327.1% 467.1%; background-position:48.9% 1.9%; border-radius:12px; clip-path:polygon(20% 0,77% 0,91% 12%,100% 32%,87% 80%,63% 100%,33% 100%,11% 73%,0 42%,10% 18%); }
+.strip-star { font-size:34px; color:$red; margin-left:2px; }
+.strip-ticket { padding-left:22px; border-left:2px dashed #b4a58d; min-width:110px; span:first-child { display:block; font-size:8px; font-weight:700; letter-spacing:1.5px; color:#8f7660; } strong { display:block; font:23px Anton,sans-serif; margin:4px 0 7px; } }
+.ticket-bars { display:block; height:19px; width:85px; background:repeating-linear-gradient(90deg,#28231b 0 2px,transparent 2px 4px,#28231b 4px 5px,transparent 5px 8px,#28231b 8px 12px,transparent 12px 15px); }
+.rock-ticker { padding:21px 10px; border-bottom:1px dashed #66543a88; }
+.lineup-heading { position:relative; padding-left:16px; border-left:4px solid $red; }
+.section-kicker { display:block; color:$yellow; font-size:8px; letter-spacing:2px; font-weight:700; margin-bottom:8px; }
+.rock-menu .sectionhead h2 { font-size:32px; color:$paper; span { color:$red; font-size:39px; display:inline-block; transform:rotate(8deg); margin-left:5px; } }
+.cart-side { position:sticky; border-color:#4b4031; border-top:3px solid $yellow; .cart-tape { background:$paper; color:#3a3023; transform:rotate(-2deg); font-size:8px; letter-spacing:.9px; font-weight:700; padding:7px 8px; width:fit-content; margin:-35px auto 18px; box-shadow:0 2px 6px #0005; } }
+.encore-banner { margin-top:35px; padding:25px 28px; position:relative; overflow:hidden; display:flex; align-items:center; gap:23px; background:$red; color:$paper; border-radius:3px; border:1px solid #cf4b3b;
+ div>span { font-size:8px; font-weight:700; letter-spacing:2px; display:block; margin-bottom:4px; } strong { font:26px Anton,sans-serif; } button { margin-left:auto; font-size:11px; font-weight:700; border-bottom:1px solid #eeddb999; padding:10px 0; z-index:1; } }
+.encore-star { font-size:47px; color:$yellow; transform:rotate(12deg); }.encore-bolt { font:160px Anton,sans-serif; position:absolute; right:70px; opacity:.13; transform:rotate(16deg); }
+.footer { margin-top:30px; }
+
+@media(max-width:1100px){.header-amp{display:none}.hero-copy{padding:32px 28px;h1{font-size:58px}}.heading-star{right:3%;font-size:31px}.hero-decal{left:42%;transform:rotate(8deg) scale(.85);transform-origin:bottom}.rock-strip{padding:22px;gap:15px}.strip-label{min-width:215px;strong{font-size:23px}}.sticker-line{gap:10px;.sticker{width:65px;height:65px}}.strip-star{display:none}.strip-ticket{padding-left:15px;min-width:100px}}
+@media(max-width:850px){.strip-ticket{display:none}.rock-strip{justify-content:space-between}.hero-copy h1{font-size:53px}.poster-edition{font-size:6px}.heading-star{display:none}}
+@media(max-width:760px){
+ .rock-header{padding:0 16px}.rock-wrap{padding-top:18px}.wall-collage{background-size:330px 586px;opacity:.035;mask-image:none}.wall-bolt--one{top:1250px;left:-45px}.wall-bolt--two{top:2100px}
+ .rock-hero{min-height:510px;display:block;overflow:visible;background:#141414;border:1px solid #4b4031}
+ .hero-copy{padding:24px 24px 23px;border-radius:3px 3px 0 0;min-height:300px;background:$paper;width:100%;z-index:2;
+  &::after{top:auto;right:0;left:0;bottom:-12px;width:100%;height:14px;clip-path:polygon(0 0,100% 0,100% 40%,96% 65%,92% 30%,87% 85%,82% 40%,77% 100%,72% 38%,67% 70%,63% 24%,58% 80%,54% 32%,49% 84%,45% 39%,40% 95%,34% 28%,28% 80%,23% 35%,17% 83%,12% 29%,7% 72%,0 40%)}
+  .eyebrow{font-size:8px;letter-spacing:1px}.poster-edition{font-size:6px;letter-spacing:1.4px;margin-top:11px}h1{font-size:52px;margin:13px 0 10px;max-width:100%;line-height:1.04}p{font-size:11px;max-width:none;margin:10px 0 15px}.primary{padding:12px 17px;font-size:11px}.poster-footnote{font-size:6px;margin-top:16px;letter-spacing:1.4px}
+ }
+ .hero-photo{position:relative;inset:auto;width:100%;height:205px;min-height:205px;opacity:1;border-radius:0 0 3px 3px;
+  img{object-position:center 62%;} &::after{background:linear-gradient(0deg,#0c0c0c77,transparent 45%)}
+ }
+ .stamp{width:59px;height:59px;font-size:12px;top:17px;right:14px;small{font-size:6px}}
+ .hero-decal{left:auto;right:12px;bottom:187px;transform:rotate(12deg) scale(.69);transform-origin:right bottom}.hero-tape{font-size:7px;right:15px;padding:8px 13px;bottom:-10px}
+ .rock-strip{display:block;padding:21px 17px 17px;min-height:170px;margin-top:26px; &::after{right:30px} &::before{left:18px}}
+ .strip-label{min-width:0;position:relative;span{font-size:7px;letter-spacing:1.6px;margin-bottom:4px}strong{font-size:23px}small{font-size:9px;margin-top:5px}}
+ .sticker-line{justify-content:flex-start;gap:16px;margin-top:17px;.sticker{width:54px;height:54px;border-width:2px}}.strip-star{display:block;font-size:25px;margin-left:auto}.rock-ticker{padding:19px 0;font-size:7px;letter-spacing:.3px;span:last-child{display:none}}
+ .rock-menu .sectionhead{margin-top:22px;align-items:flex-end;gap:8px;h2{font-size:25px;span{font-size:29px;margin-left:0}}small{font-size:8px;line-height:1.6;max-width:104px}}
+ .lineup-heading{padding-left:10px;border-left-width:3px}.section-kicker{font-size:6px;letter-spacing:1.3px;margin-bottom:6px}
+ .encore-banner{padding:21px 18px;gap:12px;flex-wrap:wrap;div{flex:1}div>span{font-size:6px;letter-spacing:1.4px}strong{font-size:21px}button{margin-left:41px;font-size:9px;padding:7px 0}.encore-star{font-size:32px}.encore-bolt{right:7px;font-size:160px}}
+ .footer{margin-top:25px}
+}
+@media(prefers-reduced-motion:reduce){.hero-copy .primary{transition:none}}

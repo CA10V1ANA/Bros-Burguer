@@ -1,1 +1,37 @@
-<header><a class="brand" href="/"><img src="assets/brand.jpg" alt="BRO’S Hamburgueria artesanal"><strong>BRO’S BURGUER<span>ROCK & ARTISAN GRILL</span></strong></a><nav><button (click)="scrollMenu()">Cardápio</button><button (click)="ui.open({kind:'tracking'})">Meus pedidos @if(store.myOrders().length){({{store.myOrders().length}})}</button></nav></header><main class="wrap"><section class="hero"><div class="hero-copy"><div class="eyebrow">★ HAMBÚRGUER ARTESANAL. ALMA ROCK.</div><h1>O SABOR TEM<br><em>ATITUDE.</em></h1><p>Na chapa, no volume máximo.<br>Escolha seu burger e monte o seu show.</p><button class="primary gold" (click)="scrollMenu()">Escolher meu burger &nbsp; ↘</button></div><div class="hero-photo"><img src="assets/hero.jpg" alt="Hambúrgueres artesanais BRO’S e batatas com cheddar"><div class="stamp">100%<br>ARTESANAL<small>SEM PLAYBACK</small></div></div></section><div class="ticker"><span><b>✦</b> BLEND FEITO NA CASA</span><span><b>ϟ</b> SABOR SEM DISTORÇÃO</span><span><b>★</b> ROCK EM CADA MORDIDA</span></div><button class="mobile-orders" (click)="ui.open({kind:'tracking'})">☷ Meus pedidos e acompanhamento →</button><section id="menu"><div class="sectionhead"><h2>O LINE-UP DA FOME <span style="color:var(--gold)">ϟ</span></h2><small>Seu próximo favorito está aqui.<br>Valores demonstrativos</small></div><div class="shop-layout customer-catalog"><bros-catalog/><aside class="cart-side"><bros-cart/></aside></div></section><footer class="footer"><strong>⚡ BRO’S BURGUER · FEITO PARA QUEM TEM ATITUDE.</strong><span>Demonstração local · Sem pagamento ou envio real</span></footer></main><button class="float-cart" (click)="ui.open({kind:'cart'})"><span>▣ Sua sacola <small>{{store.cartCount()}} itens · {{store.cartTotal()|money}}</small></span><span>Ver pedido →</span></button>
+<div class="rock-canvas" aria-hidden="true"><div class="wall-collage"></div><div class="wall-bolt wall-bolt--one"></div><div class="wall-bolt wall-bolt--two"></div><span class="wall-star">✦</span></div>
+<header class="rock-header">
+  <a class="brand" href="/"><img src="assets/brand.jpg" alt="BRO’S Hamburgueria artesanal"><strong>BRO’S BURGUER<span>ROCK & ARTISAN GRILL</span></strong></a>
+  <span class="header-amp" aria-hidden="true">EST. NA CHAPA <b>ϟ</b> FEITO NO ROCK</span>
+  <nav><button (click)="scrollMenu()">Cardápio</button><button (click)="ui.open({kind:'tracking'})">Meus pedidos @if(store.myOrders().length){({{store.myOrders().length}})}</button></nav>
+</header>
+<main class="wrap rock-wrap">
+  <section class="hero rock-hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="mini-bolt" aria-hidden="true"></span> HAMBÚRGUER ARTESANAL. ALMA ROCK.</div>
+      <span class="poster-edition">BRO’S PRESENTS / O SEU PRÓXIMO FAVORITO</span>
+      <h1>O SABOR TEM<br><em>ATITUDE.</em><span class="heading-star" aria-hidden="true">✦</span></h1>
+      <p>Na chapa, no volume máximo.<br>Escolha seu burger e monte o seu show.</p>
+      <button class="primary gold" (click)="scrollMenu()">Escolher meu burger &nbsp; ↘</button>
+      <span class="poster-footnote">SEM PLAYBACK. SEM FOME. SÓ BURGER.</span>
+    </div>
+    <div class="hero-photo"><img src="assets/hero.jpg" alt="Hambúrgueres artesanais BRO’S e batatas com cheddar"><div class="stamp">100%<br>ARTESANAL<small>SEM PLAYBACK</small></div></div>
+    <div class="hero-decal" aria-hidden="true"><span class="sticker sticker--horns"></span><span class="decal-caption">LET’S ROCK!</span></div>
+    <span class="hero-tape" aria-hidden="true">FEITO COM ATITUDE ϟ</span>
+  </section>
+
+  <section class="rock-strip" aria-label="Identidade rock da BRO’S">
+    <div class="strip-label"><span>O SOM É ROCK.</span><strong>O SHOW É NA CHAPA.</strong><small>Clássicos no som. Autorais no sabor.</small></div>
+    <div class="sticker-line" aria-hidden="true"><span class="sticker sticker--nirvana"></span><span class="sticker sticker--acdc"></span><span class="sticker sticker--guns"></span><span class="sticker sticker--stones"></span><span class="strip-star">✦</span></div>
+    <div class="strip-ticket"><span>SEU INGRESSO</span><strong>É A FOME.</strong><span class="ticket-bars" aria-hidden="true"></span></div>
+  </section>
+
+  <div class="ticker rock-ticker"><span><b>✦</b> BLEND FEITO NA CASA</span><span><b>ϟ</b> SABOR SEM DISTORÇÃO</span><span><b>★</b> ROCK EM CADA MORDIDA</span></div>
+  <button class="mobile-orders" (click)="ui.open({kind:'tracking'})">☷ Meus pedidos e acompanhamento →</button>
+  <section id="menu" class="rock-menu">
+    <div class="sectionhead"><div class="lineup-heading"><span class="section-kicker">ESCOLHA SEU HEADLINER</span><h2>O LINE-UP DA FOME <span aria-hidden="true">ϟ</span></h2></div><small>Seu próximo favorito está aqui.<br>Valores demonstrativos</small></div>
+    <div class="shop-layout customer-catalog"><bros-catalog/><aside class="cart-side"><div class="cart-tape" aria-hidden="true">BACKSTAGE DO SEU PEDIDO</div><bros-cart/></aside></div>
+  </section>
+  <div class="encore-banner"><span class="encore-star" aria-hidden="true">✦</span><div><span>A ÚLTIMA MÚSICA ACABA.</span><strong>A VONTADE DE BRO’S, NÃO.</strong></div><button (click)="scrollMenu()">BORA DE MAIS UM? ↗</button><span class="encore-bolt" aria-hidden="true">ϟ</span></div>
+  <footer class="footer"><strong>⚡ BRO’S BURGUER · FEITO PARA QUEM TEM ATITUDE.</strong><span>Demonstração local · Sem pagamento ou envio real</span></footer>
+</main>
+<button class="float-cart" (click)="ui.open({kind:'cart'})"><span>▣ Sua sacola <small>{{store.cartCount()}} itens · {{store.cartTotal()|money}}</small></span><span>Ver pedido →</span></button>
